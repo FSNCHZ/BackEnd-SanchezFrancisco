@@ -1,0 +1,29 @@
+[
+  {
+    "_id": "108c4b8dc166af90d2690f04",
+    "name": "Francisco",
+    "lastname": "Sanchez",
+    "email": "sanchezfrancisco@gmail.com",
+    "password": "543",
+    "avatar": "./assets/image.png",
+    "role": "VIP"
+  },
+  {
+    "_id": "dcd0a1feda24bfb7b1ff203f",
+    "name": "Maria",
+    "lastname": "Dominguez",
+    "email": "mdominguez@gmail.com",
+    "password": "asdasd",
+    "avatar": "https://avatars.githubusercontent.com/u/76061120",
+    "role": "user"
+  },
+  {
+    "_id": "dcfea0f3e72ff2fe450a477b",
+    "name": "Ramiro",
+    "lastname": "Rodriguez",
+    "email": "ramirorodriguez@gmail.com",
+    "password": "ramiro123",
+    "avatar": "src/images/avatar.png",
+    "role": "user"
+  }
+]

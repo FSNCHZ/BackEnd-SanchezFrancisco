@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "3be98cc2ecb8bfed9ea0915b",
+    "title": "Handcrafted Bronze Ball",
+    "description": "Professional-grade Computer perfect for kooky training and recreational use",
+    "code": "ptrZklWdcp",
+    "price": "68.5",
+    "status": false,
+    "stock": 200,
+    "category": "gorros"
+  },
+  {
+    "_id": "9d286b8ccdc591a59ee9541e",
+    "title": "Rustic Steel Shirt",
+    "description": "Watsica LLC's most advanced Cheese technology increases mad capabilities",
+    "code": "vuLDKVNtCM",
+    "price": "7408.3",
+    "status": true,
+    "stock": 1881,
+    "category": "gorros"
+  },
+  {
+    "_id": "29cab017ff6019afd7ef1aac",
+    "title": "Incredible Plastic Salad",
+    "description": "Featuring Uranium-enhanced technology, our Chips offers unparalleled silver performance",
+    "code": "xUfOXPJRxw",
+    "price": "6814.0",
+    "status": false,
+    "stock": 8221,
+    "category": "calzado"
+  },
+  {
+    "_id": "f7da0f583de6d6e0ed6cafcb",
+    "title": "remera",
+    "description": "color azul",
+    "code": "AMN92JDF",
+    "price": "549",
+    "status": "true",
+    "stock": "300",
+    "category": "vestimenta"
+  }
+]
