@@ -7,7 +7,7 @@ const validProduct = async (req, res, next) => {
             throw error
         }
         if(!stock){
-            const error = new Error(`Price needed`)
+            const error = new Error(`Stock needed`)
             error.statusCode = 404
             throw error
         }

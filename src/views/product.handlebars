@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="/style.css">
+<section class="d-flex mt-5 justify-content-center align-items-center" style="height: 65%;">
+    {{#if product}}
+    <div class="d-flex flex-row card w-75" style="width: 18rem;">
+        {{#if product.img}}
+            <img src={{product.img}} class="card-img-top object-fit-contain" style="height: 300px; width: 60%;" alt={{product._id}}>
+        {{else}}
+            <img src="https://cdn-icons-png.flaticon.com/512/9402/9402212.png" class="card-img-top object-fit-contain" style="height: 300px; width: 60%;" alt={{product._id}}>
+        {{/if}}
+        <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <p class="card-text">{{product.description}}</p>
+        </div>
+    </div>
+    {{else}}
+    <h2>Product not found!</h2>
+    {{/if}}
+</section>

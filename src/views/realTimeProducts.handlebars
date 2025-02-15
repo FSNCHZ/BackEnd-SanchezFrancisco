@@ -1,0 +1,17 @@
+<div class="container-fluid d-flex mt-4 justify-content-between">
+    <div class="d-flex px-0 w-25 justify-content-center" style="height: 300px; position: sticky; top: 10%;">
+        <form class="container-fluid d-flex flex-column justify-content-evenly align-items-center">
+            <input class="p-2" style="height: 10%" type="title" name="title" id="title" placeholder="Title">
+            <input class="p-2" style="height: 10%" type="description" name="description" id="description" placeholder="Description">
+            <input class="p-2" style="height: 10%" type="price" name="price" id="price" placeholder="Price">
+            <input class="p-2" style="height: 10%" type="img" name="img" id="img" placeholder="Image URL">
+            <input class="p-2" style="width: 40%" type="button" id="add" value="Add">
+        </form>
+    </div>
+    <div class="container-fluid d-flex flex-row flex-wrap w-75 justify-content-around" id="products"></div>
+</div>
+
+<script src="https://cdn.socket.io/4.8.1/socket.io.min.js"
+    integrity="sha384-mkQ3/7FUtcGyoppY6bz/PORYoGqOl7/aSUMn2ymDOJcapfS6PHqxhRTMh1RR0Q6+"
+    crossorigin="anonymous"></script>
+<script src="./scripts/realTimeProducts.js"></script>

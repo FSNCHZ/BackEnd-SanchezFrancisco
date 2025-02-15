@@ -37,15 +37,15 @@ La ruta "localhost:8080/api" es la ruta de donde partirán las distintas funcion
 
 Ingresando "localhost:8080/api/products", con el metodo GET, el servidor nos retornará la lista de todos los productos guardados. Si no hubiese productos guardados, nos devolverá un mensaje diciendo que no hay productos para mostrar
 
-![Lista de productos](image.png)
+![Lista de productos](./img/image.png)
 
 Ingresando "localhost:8080/api/products/:pid", donde ":pid" es el id de algun producto listado, con el metodo GET, nos devolverá ese producto. Si no existiese el producto, nos devolverá un error diciendo que el producto no existe
 
-![Listado de 1 producto](image-2.png)
+![Listado de 1 producto](./img/image-2.png)
 
 Ingresando "localhost:8080/api/products", con el metodo POST, e ingresando los datos en el body de Postman (title, description, code, price, status, stock, category, photo), nos permitirá crear un nuevo producto y guardarlo. Las propiedades title, stock y category son obligatorias, y el programa nos pedirá que volvamos a ingresar en caso de que no hayamos enviado nada. El resto de propiedades no son obligatorias, y algunas se crean automaticamente.
 
-![Creación de 1 producto](image-4.png)
+![Creación de 1 producto](./img/image-4.png)
 
 Ingresando "localhost:8080/api/products/:pid", con el metodo PUT, e ingresando datos en el body de Postman, podremos modificar los datos de un producto segun el "pid" dado. Si quisieramos modificar el Id, el programa nos enviaría un error diciendo que este no se puede modificar
 
@@ -55,15 +55,15 @@ Ingresando "localhost:8080/api/products/:pid", con el metodo DELETE, podremos el
 
 Ingresando "localhost:8080/api/users", con el metodo GET, el servidor nos retornará la lista de todos los usuarios guardados. Si no hubiese usuarios guardados, nos devolverá un mensaje diciendo que no hay usuarios para mostrar
 
-![Listado de usuarios](image-5.png)
+![Listado de usuarios](./img/image-5.png)
 
 Ingresando "localhost:8080/api/users/:uid", donde ":uid" es el id de algun usuarios listado, con el metodo GET, nos devolverá ese usuarios. Si no existiese el usuarios, nos devolverá un error diciendo que el usuario no existe
 
-![Listado de 1 usuario](image-6.png)
+![Listado de 1 usuario](./img/image-6.png)
 
 Ingresando "localhost:8080/api/users", con el metodo POST, e ingresando los datos en el body de Postman (name, lastname, email, password, avatar y role), nos permitirá crear un nuevo usuario y guardarlo. Las propiedades name, lastname y email son obligatorias, y el programa nos pedirá que volvamos a ingresar en caso de que no hayamos enviado nada.
 
-![Creacion de un usuario](image-7.png)
+![Creacion de un usuario](./img/image-7.png)
 
 Ingresando "localhost:8080/api/users/:uid", con el metodo PUT, e ingresando datos en el body de Postman, podremos modificar los datos de un usuario segun el "uid" dado.
 
