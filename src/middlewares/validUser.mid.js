@@ -1,19 +1,14 @@
 const validUser = async (req, res, next) => {
     try {
-        let { name, lastname, email } = req.body
-        if(!name){
-            const error = new Error(`Type a name for the user`)
-            error.statusCode = 404
-            throw error
-        }
-        if(!lastname){
-            const error = new Error(`Type a last name for the user`)
-            error.statusCode = 404
-            throw error
-        }
+        let { email, password } = req.body
         if(!email){
             const error = new Error(`Type a email for the user`)
-            error.statusCode = 404
+            error.statusCode = 400
+            throw error
+        }
+        if (!password) {
+            const error = new Error(`Type a password for the user`)
+            error.statusCode = 400
             throw error
         }
         next()

@@ -1,18 +1,8 @@
 const validProduct = async (req, res, next) => {
     try {
-        let { title, stock, category } = req.body
+        let { title } = req.body
         if(!title){
             const error = new Error(`Title needed`)
-            error.statusCode = 404
-            throw error
-        }
-        if(!stock){
-            const error = new Error(`Stock needed`)
-            error.statusCode = 404
-            throw error
-        }
-        if(!category){
-            const error = new Error(`Category needed`)
             error.statusCode = 404
             throw error
         }

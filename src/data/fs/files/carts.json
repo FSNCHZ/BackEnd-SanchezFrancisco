@@ -1,10 +1,17 @@
 [
   {
-    "_id": "5f8bfedcc486459f9d0fef46",
+    "user_id": "108c4b8dc166af90d2690f04",
     "products": [
       {
-        "_id": "3be98cc2ecb8bfed9ea0915b",
-        "quantity": 1
+        "_id": "4fe12c90ddd4ebae73c8cf67",
+        "title": "Motherboard ATX Z790",
+        "description": "ATX motherboard with support for latest Intel processors.",
+        "code": "MBZ790H",
+        "price": 250,
+        "status": true,
+        "stock": 20,
+        "category": "Components",
+        "img": "https://www.pngplay.com/wp-content/uploads/7/Motherboard-PNG-Clipart-Background.png"
       }
     ]
   }

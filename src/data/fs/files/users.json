@@ -1,29 +1,44 @@
 [
   {
-    "_id": "108c4b8dc166af90d2690f04",
-    "name": "Francisco",
-    "lastname": "Sanchez",
-    "email": "sanchezfrancisco@gmail.com",
-    "password": "543",
-    "avatar": "./assets/image.png",
+    "_id": "9936d335a2cd44dccc0a26c9",
+    "email": "sanchezfrancisco28@hotmail.com",
+    "password": "buenas123",
+    "photo": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png",
+    "role": "admin"
+  },
+  {
+    "_id": "8fd58ec1dff1be44bf9acba6",
+    "email": "abdhalmuhammed@gmail.com",
+    "password": "asdasd123",
+    "photo": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png",
     "role": "VIP"
   },
   {
-    "_id": "dcd0a1feda24bfb7b1ff203f",
-    "name": "Maria",
-    "lastname": "Dominguez",
-    "email": "mdominguez@gmail.com",
-    "password": "asdasd",
-    "avatar": "https://avatars.githubusercontent.com/u/76061120",
+    "_id": "d5b08f0d87687fdddfc9470f",
+    "email": "pedro@gmail.com",
+    "password": "pedro123",
+    "photo": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png",
     "role": "user"
   },
   {
-    "_id": "dcfea0f3e72ff2fe450a477b",
-    "name": "Ramiro",
-    "lastname": "Rodriguez",
-    "email": "ramirorodriguez@gmail.com",
-    "password": "ramiro123",
-    "avatar": "src/images/avatar.png",
-    "role": "user"
+    "_id": "3d15d856e62e9b6cee1262ba",
+    "email": "maria@gmail.com",
+    "password": "maria123",
+    "photo": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png",
+    "role": "admin"
+  },
+  {
+    "_id": "dbb6759e8da6a1fdc4dba770",
+    "email": "pablo@gmail.com",
+    "password": "pablo123",
+    "photo": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png",
+    "role": "VIP"
+  },
+  {
+    "_id": "92be62f50fa51e58d5b6ed9c",
+    "email": "mirta@gmail.com",
+    "password": "mirta123",
+    "photo": "https://avatars.githubusercontent.com/u/18673914",
+    "role": "admin"
   }
 ]

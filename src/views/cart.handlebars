@@ -1,0 +1,18 @@
+<section class="d-flex flex-wrap justify-content-evenly mt-5">
+    {{#each products}}
+    <div class="d-flex flex-column card mt-4 justify-content-around" style="width: 18rem;">
+        {{#if this.img}}
+            <img src={{this.img}} class="card-img-top h-50 object-fit-contain px-3 py-3" alt={{this._id}}>
+        {{else}}
+            <img src="https://cdn-icons-png.flaticon.com/512/9402/9402212.png" class="card-img-top h-50 object-fit-contain px-3 py-3" alt="{{this.id}}">
+        {{/if}}
+        <div class="card-body d-flex flex-column justify-content-around">
+            <div>
+                <h5 class="card-title">{{this.title}}</h5>
+                <h6 class="card-subtitle">${{this.price}}</h6>
+            </div>
+            <p class="card-text">{{this.description}}</p>
+        </div>
+    </div>
+    {{/each}}
+</section>

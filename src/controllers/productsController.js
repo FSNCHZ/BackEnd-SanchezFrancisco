@@ -1,9 +1,10 @@
-import productsManager from "../data/fs/ProductsManager.js"
+//import productsManager from "../data/fs/ProductsManager.js"
+import productsManager from "../data/mongo/products.mongo.js"
 
 const readOne = async (req, res, next) => {
     try {
         let { pid } = req.params
-        let one = await productsManager.readOne(pid)
+        let one = await productsManager.readById(pid)
         if (one) {
             return res.status(200).json({ response: one })
         } else {
@@ -18,11 +19,12 @@ const readOne = async (req, res, next) => {
 
 const readAll = async (req, res, next) => {
     try {
-        let all = await productsManager.readAll()
+        const { filter } = req.body
+        let all = await productsManager.readAll(filter)
         if (all.length > 0) {
             return res.status(200).json({ all })
         } else {
-            return res.status(200).json({response: `There is no products to show`})
+            return res.status(404).json({ response: `There is no products to show` })
         }
     } catch (error) {
         next(error)
@@ -32,30 +34,21 @@ const readAll = async (req, res, next) => {
 const createProduct = async (req, res, next) => {
     try {
         let data = req.body
-        let newProduct = await productsManager.createProduct(data)
+        let newProduct = await productsManager.create(data)
         return res.status(201).json({ response: newProduct })
     } catch (error) {
         next(error)
     }
 }
 
-const createFakerProduct = async (req, res, next) => {
-    try {
-        let newProduct = await productsManager.createFaker()
-        return res.status(201).json({ response: newProduct })
-    } catch (error) {
-        next(error)
-    }
-}
-
-const updateProduct = async (req, res, next) => {
+const updateOne = async (req, res, next) => {
     try {
         let data = req.body
         let { pid } = req.params
         if ("_id" in data) {
             return res.status(400).json({ message: `Attention! product's id can't be changed` })
         }
-        let one = await productsManager.updateOne(pid, data)
+        let one = await productsManager.updateById(pid, data)
         if (one) {
             return res.status(200).json({ response: one })
         } else {
@@ -68,10 +61,10 @@ const updateProduct = async (req, res, next) => {
     }
 }
 
-const deleteProduct = async (req, res, next) => {
+const deleteOne = async (req, res, next) => {
     try {
         const { pid } = req.params
-        let deleteProduct = await productsManager.deleteOne(pid)
+        let deleteProduct = await productsManager.deleteById(pid)
         if (deleteProduct) {
             return res.status(200).json({ response: deleteProduct })
         } else {
@@ -84,4 +77,16 @@ const deleteProduct = async (req, res, next) => {
     }
 }
 
-export { readOne, readAll, createProduct, createFakerProduct, updateProduct, deleteProduct }
+const paginate = async (req, res, next) => {
+    try {
+        const { page, limit } = req.query
+        const { docs, nextPage, prevPage } = await productsManager.paginate(page || 1, limit || 5)
+        return res.status(200).send({
+            message: { docs, nextPage, prevPage }
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+export { readOne, readAll, createProduct, updateOne, deleteOne, paginate }

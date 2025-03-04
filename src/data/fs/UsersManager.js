@@ -65,12 +65,9 @@ class UsersManager{
             const _id = faker.database.mongodbObjectId()
             const newUser = {
                 _id,
-                "name": data.name,
-                "lastname": data.lastname,
                 "email": data.email,
-                "password": `${data.password ? data.password : "123456"}`,
-                "age": data.age,
-                "avatar": `${data.avatar ? data.avatar : faker.image.avatar()}`,
+                "password": data.password,
+                "photo": `${data.photo ? data.photo : faker.image.avatar()}`,
                 "role": `${data.role ? data.role : faker.helpers.arrayElement(["user", "admin", "VIP"])}`
             }
             let fileData = await this.readFile()

@@ -1,70 +1,147 @@
-# BackEnd-SanchezFrancisco
+# BackEnd - Sanchez Francisco
+Esta es la entrega del proyecto final del curso de Programación BackEnd I de CoderHouse. El proyecto consiste en una API de un e-commerce de productos de computación.
+Se utilizarón las tecnologías NodeJS como entorno de ejecución, Express.js para la creación del servidor, como tambien para el manejo de rutas con router-express. Se utilizan middlewares para el manejo de errores, rutas y validación de productos y usuarios
+El proyecto cuenta con dos persistencias de datos: persistencia en archivos, utilizando fileSystem y guardando los datos en archivos .json; y persistencia en base de datos, utilizando el servidor de MongoDB.
+Se utilizo el motor de plantillas Handlebars para la creación de vistas.
+Cabe aclarar que los datos que se muestran en las vistas son aquellos que se utiliza fileSystem para guardarlos. Mientras que los datos guardados en MongoDB se acceden a través de aplicaciones como Postman, que se utilizan para testear API's.
+Tambien el manejo de productos en el carrito de las plantillas no se pudo hacer.
 
-Esta es la primera entrega de mi proyecto que forma parte del curso de Programación Backend I, de CoderHouse.
+Quienes deseen probar el proyecto deberán clonar el repositorio de Github, utilizando en una terminal el comando:
 
-El proyecto consiste de una API, la cual permite gestionar los datos de un e-commerce, teniendo funciones como crear y guardar productos, mostrar los productos, actualizarlos y eliminarlos de la base de datos. A su vez posee las mismas funcionalidades para la gestión de usuarios.
+git clone https://github.com/FSNCHZ/BackEnd-SanchezFrancisco.git
 
-De momento el carrito de compras, donde se guardarán los productos elegidos por el usuario, no tiene funcionalidad. Si bien algunas funcionalidades están desarrolladas, todavia no las implementé a todas.
+Una vez clonado el proyecto, se deberá utilizar los comandos de NPM para inicializar el servidor:
 
-El proyecto utiliza NodeJS como entorno de ejecución. La instalación de las dependencias se realizaron a traves de NPM, siendo las dependencias utilizadas: 
--Express, para la creación del servidor, el cual se comunicará con el cliente.
--Morgan, para el registro de las solicitudes.
--FileSystem, para la persistencia de datos en archivos.
--Faker, para la creación de datos aleatorios para los productos y usuarios.
+npm run start
 
-# Modo de Uso
+Si no ocurre ningun error, una vez levantado el servidor, nos avisará con el mensaje "Server ready on port 8080", como también nos avisará que la base de datos está conectada "db connected".
 
-Quien quiera probar el programa, deberá previamente tener instalado NodeJS, para poder realizar correctamente la instalación de las dependencias. También deberá tener Postman instalado, ya que de momento no posee implementación visual, y el testeo de la misma solo se puede realizar desde Postman.
+Ya estamos listo para empezar a usar la API.
 
-Podrá clonar el repositorio, utilizando el comando: "git clone https://github.com/FSNCHZ/BackEnd-SanchezFrancisco", en la terminal. O bien puede ingresar a la página "https://github.com/FSNCHZ/BackEnd-SanchezFrancisco" y descargar los archivos directamente de GitHub.
+Si queremos manejarnos a través del sistema de vistas, debemos ingresar a un explorador de internet e ingresar la dirección:
 
-Una vez ingresado al proyecto, deberá instalar las dependencias correspondientes utilizando el comando:
-"npm install" o "npm i"
+http://localhost:8080
 
-Para inicializar el servidor, se deberá ingresar el comando:
-"npm run dev"
+Esta dirección nos mostrará un listado de todos los productos guardados en archivos.
 
-Para verificar que el servidor inició, en la terminal debe salir un mensaje como este:
-"Server ready on port 8080"
 
-La ruta "localhost:8080" es la ruta principal, y servirá para poder trabajar con las distintas rutas que nos permitiran acceder a las distintas funcionalidades. Se puede ingresar en el navegador web, donde nos dará un mensaje de bienvenida, indicando que el servidor está funcionando.
+Tendremos 3 items en la barra de navegacion:
 
-La ruta "localhost:8080/api" es la ruta de donde partirán las distintas funcionalidades.
+-Home: nos dirige a la pagina principal con el listado de productos
+![localhost:8080](./img/image.png)
+-New Product: nos dirige a una pagina donde podremos crear un nuevo producto, y podremos ver como se lista en tiempo real
+![newProduct](./img/image1.png)
+![newProduct1](./img/image2.png)
+![newProduct2](./img/image3.png)
+Podemos ver que si no ingresamos una url de una foto, se nos creará una imagen por defecto, lo mismo si no ingresamos una descripción del producto.
+Para la creación de productos en tiempo real, se utilizo socket permitiendo la comunicación bidireccional entre el servido y cliente.
+-Register: nos dirige a una pagina donde podremos registrar un nuevo usuario, y guardarlo en persistencia de archivos.
+![register](./img/image4.png)
+![register1](./img/image5.png)
+![register2](./img/image6.png)
+El usuario se guardará en el archivo json de usuarios
 
-# PRODUCTOS
+Tambien en la pagina Home, cada producto tendra un boton de "Detail", el cual nos mostrará en detalle la descripción del producto, como también nos permitiría agregar el producto al carrito (si estuviera finalizada la función)
 
-*Se recomienda utilizar Postman para poder probar todas las funciones del programa
+![product-detail](/img/image7.png)
 
-Ingresando "localhost:8080/api/products", con el metodo GET, el servidor nos retornará la lista de todos los productos guardados. Si no hubiese productos guardados, nos devolverá un mensaje diciendo que no hay productos para mostrar
+Eso es todo en el apartado de las plantillas.
 
-![Lista de productos](./img/image.png)
+Si queremos acceder a los datos guardados en base de datos debemos tener instalado un programa llamado Postman, el cual nos permitirá realizar peticiones no solamente del tipo GET, sino que tambien POST, PUT, DELETE, etc.
 
-Ingresando "localhost:8080/api/products/:pid", donde ":pid" es el id de algun producto listado, con el metodo GET, nos devolverá ese producto. Si no existiese el producto, nos devolverá un error diciendo que el producto no existe
+Nos manejaremos principalmente con la url:
 
-![Listado de 1 producto](./img/image-2.png)
+http://localhost:8080/api
 
-Ingresando "localhost:8080/api/products", con el metodo POST, e ingresando los datos en el body de Postman (title, description, code, price, status, stock, category, photo), nos permitirá crear un nuevo producto y guardarlo. Las propiedades title, stock y category son obligatorias, y el programa nos pedirá que volvamos a ingresar en caso de que no hayamos enviado nada. El resto de propiedades no son obligatorias, y algunas se crean automaticamente.
+Donde de ella tendremos 3 rutas:
 
-![Creación de 1 producto](./img/image-4.png)
+-products: para trabajar con productos
+-users: para trabajar con usuarios
+-carts: para trabajar con los carritos de los usuarios
 
-Ingresando "localhost:8080/api/products/:pid", con el metodo PUT, e ingresando datos en el body de Postman, podremos modificar los datos de un producto segun el "pid" dado. Si quisieramos modificar el Id, el programa nos enviaría un error diciendo que este no se puede modificar
+# Products
 
-Ingresando "localhost:8080/api/products/:pid", con el metodo DELETE, podremos eliminar el producto segun el "pid" dado.
+Si accedemos a la ruta
 
-# USUARIOS
+http://localhost:8080/api/products
 
-Ingresando "localhost:8080/api/users", con el metodo GET, el servidor nos retornará la lista de todos los usuarios guardados. Si no hubiese usuarios guardados, nos devolverá un mensaje diciendo que no hay usuarios para mostrar
+a través del metodo GET, se nos mostrará un listado de todos los productos guardados en la DB
 
-![Listado de usuarios](./img/image-5.png)
+![products-get](./img/image8.png)
 
-Ingresando "localhost:8080/api/users/:uid", donde ":uid" es el id de algun usuarios listado, con el metodo GET, nos devolverá ese usuarios. Si no existiese el usuarios, nos devolverá un error diciendo que el usuario no existe
+a través del metodo POST, podremos crear un nuevo producto y guardarlo en la DB. Cabe aclarar que el "title" es una propiedad requerida, las demás se crean por defecto.
+Los datos del producto los debemos pasar a través del body, en formato json
 
-![Listado de 1 usuario](./img/image-6.png)
+![products-post](./img/image9.png)
 
-Ingresando "localhost:8080/api/users", con el metodo POST, e ingresando los datos en el body de Postman (name, lastname, email, password, avatar y role), nos permitirá crear un nuevo usuario y guardarlo. Las propiedades name, lastname y email son obligatorias, y el programa nos pedirá que volvamos a ingresar en caso de que no hayamos enviado nada.
+a través del método GET, y pasando como parametro un id de producto, podremos consultar si existe un producto en la DB.
 
-![Creacion de un usuario](./img/image-7.png)
+http://localhost:8080/api/products/:pid
 
-Ingresando "localhost:8080/api/users/:uid", con el metodo PUT, e ingresando datos en el body de Postman, podremos modificar los datos de un usuario segun el "uid" dado.
+![product-get](./img/image10.png)
 
-Ingresando "localhost:8080/api/users/:uid", con el metodo DELETE, podremos eliminar el usuario segun el "pid" dado.
+a través del metodo PUT, podremos actualizar algun valor del producto, impidiendonos actualizar el id del producto. Debemos pasar el product_id como parametro en la ruta
+
+http://localhost:8080/api/products/:pid
+
+a través del metodo DELETE, podremos eliminar un producto de la DB. Debemos pasar el product_id como parametro en la ruta
+
+http://localhost:8080/api/products/:pid
+
+# Users
+
+Los métodos de los usuarios es parecido al de los productos, solo que accederemos a traves de la ruta
+
+http://localhost:8080/api/users
+
+El metodo GET, nos devolverá los usuarios listados en la DB
+
+![users-get](./img/image11.png)
+
+El metodo GET, si le pasamos como parametro un user_id, nos permitira consultar si existe un usuarios con esa id en la DB
+
+![user-get](./img/image12.png)
+
+El metodo POST, nos permitirá crear un usuario y guardarlo en la DB. Las propiedades "email" y "password" son obligatorias, el resto se crean por defecto
+
+![user-create](./img/image13.png)
+
+El metodo PUT, nos permite actualizar los datos de un usuario, pasando como parametro en la ruta un user_id.
+
+![user-update](./img/image14.png)
+
+El metodo DELETE, nos permite eliminar un usuario pasando como parametro el user_id
+
+![user-delete](./img/image15.png)
+
+# Carts
+
+Podremos acceder a los métodos de los carritos a través de la ruta
+
+http://localhost:8080/api/carts
+
+El metodo GET, a través de la ruta
+
+http://localhost:8080/api/carts/users/:uid
+
+Nos devolverá todos los productos que estén guardados en el carrito de un usuario
+
+![carts-user](./img/image16.png)
+
+El método POST, a través de la ruta
+
+http://localhost:8080/api/carts
+
+Nos permitirá agregar un producto, al carrito de un usuario, para hacerlo debemos pasar a través del body, el "product_id" y el "user_id".
+
+![productToCart](./img/image17.png)
+
+El método DELETE, nos permitirá eliminar un carrito, pasando como parámetro como el id de un carrito
+
+![cart-delete](./img/image18.png)
+
+Finalmente el método PUT, nos permite actualizar la cantidad de un producto de un carrito, donde deberemos pasar el id de un carrito por parametros, y la cantidad a actualizar por el body
+
+
+Si bien muchas funcionalidades no se pudieron implementar, más adelante seguramente pueda implementarlas. El curso fue de mucha ayuda y me sirvió mucho para aprender sobre el manejo de datos.
+Muchas gracias!!

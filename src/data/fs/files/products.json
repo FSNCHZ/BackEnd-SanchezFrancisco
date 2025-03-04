@@ -427,5 +427,14 @@
     "stock": 75,
     "category": "Cables",
     "img": "https://assets.aten.com/product/category/SubCategory/Cables/HDMI_Cables/SubCategory_Cable_HDMI_True-4K60Hz_NoPadding.png"
+  },
+  {
+    "_id": "46e1df813a47c0b7d1c13ccd",
+    "title": "Computer",
+    "category": "Computer",
+    "description": "New product",
+    "img": "https://cdn-icons-png.flaticon.com/512/9402/9402212.png",
+    "price": "500000",
+    "stock": "1"
   }
 ]

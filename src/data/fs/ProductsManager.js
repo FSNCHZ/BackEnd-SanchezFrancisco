@@ -47,7 +47,12 @@ class ProductsManager {
             //Se crea el producto con su id, y la data ingresada por el cliente
             const newProduct = {
                 _id,
-                ...data
+                "title": data.title,
+                "category": `${data.category ? data.category : data.title}`,
+                "description": `${data.description ? data.description : "Product description"}`,
+                "img": `${data.img ? data.img : "https://cdn-icons-png.flaticon.com/512/9402/9402212.png"}`,
+                "price": `${data.price ? data.price : 1}`,
+                "stock": `${data.stock ? data.stock : 1}`
             }
             //Se refiere el archivo donde se va a guardar el producto (readFile() retorna un array)
             const fileData = await this.readFile()

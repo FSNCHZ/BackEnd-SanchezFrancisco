@@ -1,8 +1,10 @@
-import usersManager from "../data/fs/UsersManager.js";
+//import usersManager from "../data/fs/UsersManager.js";
+import usersManager from "../data/mongo/users.mongo.js"
 
 const readUsers = async (req, res, next) => {
     try {
-        let users = await usersManager.readUsers()
+        const { filter } = req.body
+        let users = await usersManager.readAll(filter)
         if (users.length > 0) {
             return res.status(200).json({ response: users })
         } else {
@@ -16,7 +18,7 @@ const readUsers = async (req, res, next) => {
 const readUser = async (req, res, next) => {
     try {
         let { uid } = req.params
-        let user = await usersManager.readUser(uid)
+        let user = await usersManager.readById(uid)
         if (user) {
             return res.status(200).json({ response: user })
         } else {
@@ -32,7 +34,7 @@ const readUser = async (req, res, next) => {
 const createUser = async (req, res, next) => {
     try {
         let data = req.body
-        let newUser = await usersManager.createUser(data)
+        let newUser = await usersManager.create(data)
         return res.status(201).json({ response: newUser })
     } catch (error) {
         next(error)
@@ -43,7 +45,7 @@ const updateUser = async (req, res, next) => {
     try {
         let { uid } = req.params
         let data = req.body
-        let user = await usersManager.updateUser(uid, data)
+        let user = await usersManager.updateById(uid, data)
         if (user) {
             return res.status(200).json({ response: user })
         } else {
@@ -59,7 +61,7 @@ const updateUser = async (req, res, next) => {
 const deleteUser = async (req, res, next) => {
     try {
         let { uid } = req.params
-        let deletedUser = await usersManager.deleteUser(uid)
+        let deletedUser = await usersManager.deleteById(uid)
         if(deletedUser){
             return res.status(200).json({ response: deletedUser })
         } else {
